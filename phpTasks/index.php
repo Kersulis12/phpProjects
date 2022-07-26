@@ -5,102 +5,77 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <!-- CSS only -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-  <!-- JavaScript Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./css/main.css">
   <title>Document</title>
 
 </head>
 
 <body>
-  <!-- TaskPHP  -->
-  <!-- Sukurti naują projektą su index.php failu.
-įsidėti bootstrap CDN 
-Įsidėti lentelę
-table ir lentelę gražiai apipavidalinti su bootstrap ar CSS/SCSS// ?????kas yra SCSS?
-
-susikurti GET formą kuri turėtų 4 įvesties laukus. tema  pagal jūsų fantaziją.
-
-1. Atvaizduoti HTML duomenis kuriuos suveda vartotojas į formą.
-2. Susikurti sesiją, įdėti tai ką vartotojas užpildė formoje ir su ciklu atvaizduoti ekrane
-3. Atvaizduoti gražiai, bootrstapiniame table   -->
-  <h1>Hello, please fill in all fields!</h1>
-  <?php
-  session_start();
-  if (!isset($_SESSION['participants'])) {
-    $_SESSION['participants'] = [];
-  }
-
-  if (isset($_GET["name"])  && isset($_GET["surname"]) && isset($_GET["email"]) && $_GET["name"] != "" && $_GET["surname"] != "" && $_GET["email"] != "") {
-    $_SESSION['participants'][] = ['name' => $_GET['name'], 'surname' => $_GET['surname'], 'email' => $_GET['email']];
-  }
-  // print_r(array_keys($_SERVER));
-  // print_r($_POST);
-  ?>
-  <div class="container">
-    <form action="" method="get">
-      <input type="text" name="name">
-      <input type="text" name="surname">
-      <input type="text" name="email">
-      <button type="submit" class="btm btm-success">submit</button>
-    </form>
-
-    <table class="table table-bordered">
-      <thead class="thead-dark">
-        <tr class="active">
-          <th scope="col">name</th>
-          <th scope="col">surname</th>
-          <th scope="col">email</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-        foreach ($_SESSION['participants'] as $ptc) {
-        ?>
-          <tr>
-            <!-- <td> <?= $ptc['name'] ?> </td>  -->
-            <td> <?php echo $ptc['name']; ?> </td>
-            <td> <?php echo $ptc['surname']; ?> </td>
-            <td> <?php echo $ptc['email']; ?> </td>
-          </tr>
-        <?php } ?>
-        <!-- <tr>
-      <th scope="row">1</th>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr> -->
-      </tbody>
-    </table>
-
-  </div>
 
   <!-- Training php tasks -->
 <!-- Task 1 (kint ir sal)
 Sukurkite 4 kintamuosius, kurie saugotų jūsų vardą, pavardę, gimimo metus ir šiuos metus (nebūtinai tikrus). Parašykite kodą, kuris pagal gimimo metus paskaičiuotų jūsų amžių ir naudodamas vardo ir pavardės kintamuosius atspausdintų tokį sakinį :
 "Aš esu Vardenis Pavardenis. Man yra XX metai(ų)". -->
+<?php
+$vardas = "Margarita ";
+$pavarde = "Margarittttttta";
+$gimmetai = 2000;
+$metai = 2022;
+$age = $metai - $gimmetai;
 
+echo "<h2>Aš esu " . $vardas . $pavarde . ". Man yra " . $age . " metai." . "</h2>";
+echo "<p>Aš esu " . $vardas . $pavarde . ". Man yra " . $metai - $gimmetai . " metai." . "</p>";
+?>
 
 <!-- Task 2 (kint ir sal)
 Naudokite funkcija Math.random(). Sukurkite du kintamuosius ir naudodamiesi funkcija Math.random() jiems priskirkite atsitiktines reikšmes nuo 0 iki 4 (sveiki skaičiai). Didesnę reikšmę padalinkite iš mažesnės. Atspausdinkite rezultatą jį suapvalinę iki 2 skaičių po kablelio. -->
 
+<?php
+echo(rand(0,4));
+$num1 = rand(0,4);
+$num2 = rand(0,4);
+echo "<p>" . $num1 . "</p>";
+echo "<p>" . $num2 . "</p>";
+if ($num1 >= $num2 && $num1 != 0 && $num2 != 0) {
+  echo '<p class="atsakymas">' . round(($num2 / $num1), 2) .  '</p>';//why does not print "atsakymas"?
+
+}
+if (($num1 <= $num2 && $num1 != 0 && $num2 != 0)) {
+  echo '<p class="atsakymas">' . round(($num1 / $num2), 2) .  '</p>';
+}
+
+if ($num1 == 0 || $num2 == 0) {
+  echo '<p class="atsakymas"> Nevyksta</p>';
+}
+?>
+
 <!-- Task 3 (kint ir sal)
 Naudokite funkcija Math.random(). Sukurkite tris kintamuosius ir naudodamiesi funkcija Math.random() jiems priskirkite atsitiktines reikšmes nuo 0 iki 25 (sveiki skaičiai). Raskite ir atspausdinkite kintąmąjį turintį vidurinę reikšmę. -->
+<?php
+$num3 = rand(0,25);
+$num4 = rand(0,25);
+$num5 = rand(0,25);
+echo "<p>" . $num3 . "</p>";
+echo "<p>" . $num4 . "</p>";
+echo "<p>" . $num5 . "</p>";
+if (($num3 >= $num4 && $num4 >= $num5) ||
+   ($num3 <= $num4 && $num4 <= $num5) ){
+  echo '<p class="atsakymas">' . $num4 . '</p>';
+}
+if (($num4 >= $num5 && $num5 >= $num3) ||
+   ($num4 <= $num5 && $num5 <= $num3) ){
+  echo '<p class="atsakymas">' . $num5 . '</p>';
+}
+if (($num5 >= $num3 && $num3 >= $num4) ||
+   ($num5 <= $num3 && $num3 <= $num4) ){
+  echo '<p class="atsakymas">' . $num3 . '</p>';
+}
+?>
+
 
 <!-- Task 4 (stringai)
 Sukurti du kintamuosius. Jiems priskirti savo mylimo aktoriaus vardą ir pavardę kaip stringus (Jonas Jonaitis). Atspausdinti trumpesnį stringą. -->
