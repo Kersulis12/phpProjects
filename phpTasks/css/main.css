@@ -1,6 +1,23 @@
 body {
-    margin-top: 500pxs;
-    margin-right: 500pxs;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
     background-color: beige;
 }
 
+.square {
+    color:brown;
+    margin: 0%;
+    line-height: -5px;
+    line-break: 0,0001;
+    font-size: larger;
+    border-color: brown;
+    letter-spacing: -2px;
+    border: blue;
+    background-color: aqua;
+}
+
+#kazkoksId{
+
+}

@@ -140,7 +140,6 @@ $number = 0;
  }
  echo $number, $text;
 ?>
-echo "<p>"" . <br> . "</p>";// how to bring to another line
 
 <!-- echo $number $text; -->
 <!-- echo "<p>" . $number . $text . "</p>"; -->
@@ -164,48 +163,101 @@ $number1 = 0;
 
 <!-- Task 3 (ciklai)
 Nupieškite kvadratą iš “*”, kurio kraštines sudaro 100 “*”. -->
-<?php
+<!-- <?php
 for ($i=0; $i < 10; $i++) { 
-  $text2 = "<p></p>";
+  $text2 = "<p>";
   for ($a=0; $a < 10; $a++) { 
     $text2 .= "*";
   }
-  echo ($text2);// why not square?
+  echo ($text2. "</p>");// why not square?
+}
+?> -->
+
+<!-- <?php
+for ($i=0; $i < 10; $i++) { 
+  $text2 = "";
+  for ($a=0; $a < 10; $a++) { 
+    $text2 .= "*";
+  }
+  echo ($text2. "<br>");
+}
+?> -->
+
+
+<?php
+for ($i=0; $i < 10; $i++) { 
+  $text2 = '<p class= "square">';
+  for ($a=0; $a < 10; $a++) { 
+    $text2 .= "*";
+  }
+  echo ($text2. "</p>");
 }
 ?>
+
+<!-- <?php
+for ($i=0; $i < 10; $i++) { 
+  $text2 = "";
+  for ($a=0; $a < 10; $a++) { 
+    $text2 .= "*";
+  }
+  echo wordwrap($text2. "<br\n");
+}
+?> -->
+
+<!-- <?php
+$strSquare= rand(1,100);
+for ($i=0; $i < 100; $i++) { 
+  $sText = "*";
+}
+echo wordwrap($sText,10,"<br>\n"); //Why?
+?> -->
 
 <!-- Task 1 (funkcijos)
 Parašykite funkciją, kurios argumentas būtų tekstas, kuris yra įterpiamas į h1 tagą; -->
 
 <?php
-function tagText() {
-  echo "<h1>" . "Nice day" . "</h1>";
+function tagText($text) {
+  echo "<h1>" . $text . "</h1>";
 }
-tagText ();
+tagText ("labas");
+tagText ("kada pietus?");
+tagText ("isalkau :)");
+
+
 ?>
 
 <!-- Task 2 (funkcijos)
 Parašykite funkciją su dviem argumentais, pirmas argumentas tekstas, įterpiamas į h tagą, o antrasis tago numeris (1-6). Rašydami šią funkciją remkitės pirmame uždavinyje parašytą funkciją; -->
-<!-- <?php
-function tagTextnum($tText, $numN) {
-  for ($i=0; $i < 6; $i++) { 
-    $numN = (rand(1-6));
-  }
-  return tagText();
+
+ <?php
+function tagTextnum($text, $numN) {
+  echo "<h".$numN.">" . $text . "</h".$numN.">";
 }
-tagTextnum (tagText(), $numN);//???????????
-?> -->
+tagTextnum ("labas", rand(1,6));
+?> 
 
 
 <!-- Task 3 (funkcijos)
 Sugeneruokite atsitiktinį stringą iš raidžių ir skaičių. Visus skaitmenis stringe įdėkite į h1 tagą. Raides palikite. Jegu iš eilės eina keli skaitmenys, juos į tagą reikią dėti kartu (h1 atsidaro prieš pirmą ir užsidaro po paskutinio) Keitimui naudokite pirmo patobulintą (jeigu reikia) uždavinio funkciją. -->
-<!-- <?php
-function randStrLetNum($rLetter, $rNum) {
-
+<?php
+function randStrLetNum() {
+  $rndStr = generateRandomString((10));
+  echo $rndStr ."<br>";
+  for ($i = 0; $i < strlen($rndStr); $i++) { 
+    if ( is_numeric($rndStr[$i]) ) {
+      echo "<h1>" . $rndStr[$i] . "</h1>";// sort()? dfgsg4f5dgs54fg1df561  [0]
+    }else {
+        echo "<p>" .$rndStr[$i] . "</p>";
+      }
+    //jeigu $i-tasis simbolis skaicius - dekime ne i p taga, o i h1. is_numeric()
+    // echo "<p>".$rndStr[$i]."</p>";
+  }
 }
 
-?> -->
-<!-- <?php
+randStrLetNum();
+?> 
+
+ <?php
 function generateRandomString($length = 25) {// pvz   vistiek nesuprantu..
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
@@ -215,7 +267,8 @@ function generateRandomString($length = 25) {// pvz   vistiek nesuprantu..
     }
     return $randomString;
 }
-?> -->
+// echo generateRandomString(6);
+?>
 
 <!-- Task 1.1 (funkcijos)
 Sukurkite funkciją kuri pakeltų paduotą skaičių n laipsniu, ir gražintų reikšmę (paduodate du parametrus, skaičių ir laipsnį) -->
@@ -232,12 +285,12 @@ numNum(5, 2);// why nothing?????
 Sukurkite funkciją kuri priims tris parametrus. skaičių, laipsnį ir HTML elemento id.
 ši funkcija naudos antrają funkciją ir jos rezultatą gražins į HTML elementą. -->
 <!-- <?php
-function paramThree($numNum1, $n1, text7) {
-$elSomething = document.getElementById("elSomething");
-elSomething.innerHTML = "<p" . text7 . "</p>";
-echo (elSomething.innerHTML);
-}
-paramThree ($numNum2, $n2, "Look");//???????????
+// function paramThree($numNum1, $n1, $text7) {
+// $elSomething = document.getElementById("elSomething");
+// elSomething.innerHTML = "<p" . text7 . "</p>";
+// echo (elSomething.innerHTML);
+// }
+// paramThree ($numNum2, $n2, "Look");//???????????
 ?> -->
 
 
