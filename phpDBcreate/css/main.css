@@ -1,0 +1,55 @@
+body {
+    background-image:url(../images/desktop\ background\ images\ hd\ Collection\ 71.jpg);
+    /* background-position: center; */
+    background-position:left;
+    margin-left: 1% ;
+    /* background-repeat: no-repeat; */
+}
+
+.header container {
+    width: 90%;
+    height: 70%;
+    margin-top: 30%;
+    /* background-color: rgb(65, 170, 78); */
+    /* border-radius: 5px; */
+    /* align-items: center; */
+    float: left;
+}
+
+.form container {
+    width: 300px;
+    height: 300px;
+    /* margin: auto; */
+    background-color:rgb(41, 21, 8);
+    /* border-radius: 5px;
+    align-items: center; */
+    /* float: right; */
+}
+
+/* header {
+    width: 70%;
+    height: 100%;
+    background-color: rgb(89, 232, 158);
+    /* background-color: rgb(255, 127, 219); */
+    /* position:fixed;
+    left:0;
+    bottom: 0; */
+    /* padding: 5%;
+    margin-top: 30px; 
+    align-content: center; */
+  
+
+
+/* }
+form
+form-group col-md-4
+table 
+/* footer {
+    width: 70%;
+    height: 80%;
+    background-color: rgb(89, 232, 158);
+    /* position:fixed;
+    left:0;
+    bottom: 0; */
+    /* margin-top: 300px; 
+} */

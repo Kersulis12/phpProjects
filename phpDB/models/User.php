@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="./css/main.css">
 <?php
-
 class User {
 public $Id;
 public $Name;
